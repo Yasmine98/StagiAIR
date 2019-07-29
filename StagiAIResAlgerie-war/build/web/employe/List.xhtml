@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    
+     <h:head  >
+        <title><ui:insert name="title">Employés</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>    
+        <h:outputScript library="js" name="jsfcrud.js"/>
+       
+          <link rel="icon" type="image/png" href="/images/air.png" />
+    </h:head>
+
+    <ui:composition  template="./../template.xhtml"  >
+     
+        <ui:define name="title"    >
+            <h:outputText value="Encadreurs" ></h:outputText>
+           
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="EmployeListForm"  >
+                <p:growl id="msgs" showDetail="true" />
+                <h3 style=" margin-left: 465px !important;">Encadreurs</h3> 
+                <p:commandButton  id="createButton" value="Nouveau" actionListener="#{employeController.prepareCreate}" update="EmployeCreateForm:display" oncomplete="PF('EmployeCreateDialog').show()" class=" button" style=" margin-left: 65px !important;padding:7px 16px"/>                                             
+                
+                <p:accordionPanel  id="datalist" value="#{employeController.items}" var="item" activeIndex="-1"  style=" color:black ;width: 1000px ; margin-left: 65px !important" class="accordion" >
+                <p:ajax event="tabChange" listener="#{employeController.onTabChange}" update=":EmployeListForm:msgs" />
+                <p:ajax event="tabClose" listener="#{tabbedView.onTabClose}" update=":EmployeListForm:msgs" />
+               
+                <p:tab title="Employe - #{item.id} #{item.nom} #{item.prenom}"  titleStyleClass="accordion-title accordionTitle js-accordionTrigger  " >
+                    
+                    <h:panelGrid columns="3"  cellpadding="5" > 
+                    <h:panelGrid columns="1" width="150px"  cellpadding="5" > 
+                            <p:graphicImage value="http://localhost:8080/StagiAIResAlgerie-war/E/image?id=#{item.id}" height="100" width="100" class="Image" >
+		     </p:graphicImage>
+                        </h:panelGrid  > 
+                         <h:panelGrid columns="2" width="500px" > 
+                           <h:outputText value="Service:" style="font-weight: bold;margin-left: 80px"  />
+                           <h:outputText value="#{item.idservice.nom}" />
+                           <h:outputText value="Poste:" style="font-weight: bold;margin-left: 80px"  />
+                           <h:outputText value="#{item.poste}" />
+                           <h:outputText value="Numéro téléphone:" style="font-weight: bold;margin-left: 80px"  />
+                           <h:outputText value="#{item.numtel}"   />
+                         </h:panelGrid  >
+                         <h:panelGrid columns="1" width="300px"   cellpadding="5"  style=" align-items: flex-end"> 
+                         <p:commandButton id="editButton"    value="Modifier" update=":EmployeEditForm" oncomplete="PF('EmployeEditDialog').show()" class=" button1" style="display: block;width:120px !important;margin-left: 130px"/>
+               
+                    <p:commandButton id="viewStageButton"  value="Stages" update=":EmployeViewStageForm" oncomplete="PF('EmployeStageViewDialog').show()" class="button1" style="display: block;width: 120px !important;margin-left: 130px"/>
+                    <p:commandButton id="deleteButton"  value="Supprimer" actionListener="#{employeController.destroy}" update=":EmployeListForm:datalist" class=" button1"  style="display: block;width:120px !important;margin-left: 130px"/>
+                  
+                         </h:panelGrid>
+                 </h:panelGrid>
+        </p:tab>
+    </p:accordionPanel>
+            </h:form>
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+             <ui:include src="StageView.xhtml"/>
+        </ui:define>
+        
+    </ui:composition>
+
+</html>

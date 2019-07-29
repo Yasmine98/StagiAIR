@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog class="dialogue" resizable="false" showEffect="clip" hideEffect="clip" closeOnEscape="true" showHeader="false" closable="true" appendTo="@(body)" position="top" width="500px" id="StageEditDlg" widgetVar="StageEditDialog" modal="true" header="#{bundle.EditStageTitle}">
+            <h:form id="StageEditForm">
+                <h:panelGroup id="display">
+                    <h:panelGrid class="panel-grid" columns="1" rendered="#{stageController.selected != null}">
+                        <h:outputText value="#{bundle.EditStageLabel_datedeb}" class="outputtext" />
+                        <br/><p:calendar class="inputtext" id="datedeb" pattern="MM/dd/yyyy" value="#{stageController.selected.datedeb}" title="#{bundle.EditStageTitle_datedeb}"  showOn="button"/>
+                        <br/><h:outputText value="#{bundle.EditStageLabel_datefin}" class="outputtext" />
+                        <br/><p:calendar class="inputtext" id="datefin" pattern="MM/dd/yyyy" value="#{stageController.selected.datefin}" title="#{bundle.EditStageTitle_datefin}"  showOn="button"/>
+                        <br/><h:outputText value="#{bundle.EditStageLabel_idtheme}" class="outputtext" />
+                        <br/><p:selectOneMenu id="idtheme" value="#{stageController.selected.idtheme}" class="inputtext" style="width: 315px !important" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{themeController.itemsAvailableSelectOne}"
+                                           var="idthemeItem"
+                                           itemValue="#{idthemeItem}" itemLabel="#{idthemeItem.nom}"/>
+                        </p:selectOneMenu>
+                         <a href="http://localhost:8080/StagiAIResAlgerie-war/Rapports?id=#{item.id}">#{item.idtheme.nom}#{item.id}</a>
+                       
+                        <p:fileUpload fileUploadListener="#{stageController.upload}" allowTypes="/(\.|\/)(pdf|docs)$/" uploadLabel="Charger"  auto="true"   cancelLabel="Annuler" label="Choisir un rapport" sizeLimit="1000000"  style=" background-color:  #12a3ff;color: white;font-size: 10px; width: 315px !important; margin-left: 50px !important" class="button"/>
+                    </h:panelGrid>
+                    <p:commandButton class="button" actionListener="#{stageController.update}" value="#{bundle.Save}" update="display,:StageListForm:datalist," oncomplete="handleSubmit(args, 'StageEditDialog');"/>
+                    <p:commandButton class="button1" value="#{bundle.Cancel}" onclick="location.reload();"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

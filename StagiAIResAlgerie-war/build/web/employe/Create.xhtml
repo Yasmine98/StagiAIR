@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core">
+    <ui:composition>
+        <p:dialog id="EmployeCreateDlg"  widgetVar="EmployeCreateDialog"    modal="true" resizable="false" showEffect="clip"  hideEffect="clip"  closeOnEscape="true"  showHeader="false" 
+                  closable="true" appendTo="@(body)"  position="top" width="550px" height ="550px"   class="dialogue">
+            <h:form id="EmployeCreateForm"  >
+               <h:panelGroup id="display" >
+                    <h:panelGrid  bgcolor="white " class="panel-grid">
+                       
+                        
+                             <h:outputText value="Ajouter un encadreur" style="font-size: 38px;color: black; margin-left: 80px !important" /> 
+                     </h:panelGrid>
+                    <h:panelGrid  rendered="#{employeController.selected != null}" bgcolor="white" cellspacing="8"   width="400" class="panel-grid" >
+                        
+                       <p:outputLabel value="#{bundle.CreateEmployeLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{employeController.selected.id}" title="#{bundle.CreateEmployeTitle_id}" required="true" requiredMessage="#{bundle.CreateEmployeRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateEmployeLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{employeController.selected.nom}" title="#{bundle.CreateEmployeTitle_nom}" />
+                        <p:outputLabel value="#{bundle.CreateEmployeLabel_prenom}" for="prenom" />
+                        <p:inputText id="prenom" value="#{employeController.selected.prenom}" title="#{bundle.CreateEmployeTitle_prenom}" />
+                        <p:outputLabel value="#{bundle.CreateEmployeLabel_poste}" for="poste" />
+                        <p:inputText id="poste" value="#{employeController.selected.poste}" title="#{bundle.CreateEmployeTitle_poste}" />
+                        <p:outputLabel value="#{bundle.CreateEmployeLabel_numtel}" for="numtel" />
+                        <p:inputText id="numtel" value="#{employeController.selected.numtel}" title="#{bundle.CreateEmployeTitle_numtel}" />
+                        <p:outputLabel value="#{bundle.CreateEmployeLabel_photo}" for="photo" />
+                        <p:outputLabel value="#{bundle.CreateEmployeLabel_idservice}" for="idservice" />
+                        <p:selectOneMenu id="idservice" value="#{employeController.selected.idservice}" >
+                            <f:selectItems value="#{serviceController.itemsAvailableSelectOne}"
+                                           var="idserviceItem"
+                                           itemValue="#{idserviceItem}"/>
+                        </p:selectOneMenu>
+                        <p:fileUpload id="photo" fileUploadListener="#{employeController.upload}" uploadLabel="Charger"  auto="true"   cancelLabel="Annuler" label="Choisir une photo" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="1000000"  style=" background-color:  #12a3ff;color: white;font-size: 10px; width: 400px !important; margin-left: 50px !important" class="button"/>
+                       
+                       </h:panelGrid>
+                    <p:commandButton actionListener="#{employeController.create}" value="Ajouter" update="display,:EmployeListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmployeCreateDialog');" class="button" style="margin-left: 50px !important"/>
+                    <p:commandButton class="button1" value="#{bundle.Cancel}" onclick="location.reload();"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+    </ui:composition> 
+</html>
+

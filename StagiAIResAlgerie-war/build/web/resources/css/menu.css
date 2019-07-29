@@ -1,0 +1,56 @@
+
+#accordion ul {
+    list-style: none;
+    padding: 0 0 0 0;
+    width: 170px;
+}
+#accordion ul div {
+    background-color:grey;
+    background-repeat: no-repeat;
+    /*border-radius: 10px 10px 10px 10px;*/
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    height: 48px;
+    list-style: circle outside none;
+    margin: 1px;
+    width: 230px;
+}
+#accordion ul ul {
+    list-style: none;
+    padding: 0 0 0 0;
+}
+#accordion ul ul{
+    display: none;
+}
+#accordion ul li {
+    font-weight: normal;
+    cursor: auto;
+    background-color: #fff;
+    padding: 0 0 0 7px;
+}
+#accordion ul a {
+    text-decoration: none;
+}
+#accordion ul a:hover {
+    text-decoration: underline;
+}
+
+/*new menu css*/
+
+.tameHoriz, ul.tameHoriz li
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1em;
+}
+ul.tameHoriz li
+{
+    display: inline;
+    font-size: 1em;
+}
+br.cl
+{
+    clear: both;
+}

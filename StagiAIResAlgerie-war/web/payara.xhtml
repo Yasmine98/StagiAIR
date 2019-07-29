@@ -1,0 +1,103 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+     >
+
+   <h:head>
+        <link href="resources/css/airplane.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="bootstrap" name="css/bootstrap.css" /> 
+          <h:outputStylesheet library="bootstrap" name="css/navbar.css" />
+          <h:outputStylesheet library="bootstrap" name="css/style.css" />  
+          <h:outputStylesheet library="css" name="lib/getmdl-select.min.css" /> 
+          <h:outputStylesheet library="css" name="lib/nv.d3.css" />
+              <h:outputScript library="bootstrap" name="js/bootstrap.js" />
+                 <h:outputStylesheet library="css" name="application.css" /> 
+          <h:outputScript library="js" name="jsfcrud.js" />
+          <h:outputScript library="js" name="jsfcrud.js"/>
+            <h:outputStylesheet library="css" name="grid.css"/>
+             <h:outputStylesheet library="css" name="menu.css"/>
+          <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900' rel='stylesheet' type='text/css'/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+     
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+
+    </h:head>
+        
+    <h:body>     
+        <p:layout fullPage="true">
+          
+                   
+            <p:layoutUnit position="center" size="60" style="border: 0;" gutter="0">
+                
+                 <p:sidebar class="mdl-layout__drawer" widgetVar="sidebar2" position="left" baseZIndex="0" style=" border:none;width: 20%; z-index : 0!important;  margin-top: 0px;">
+             
+                <nav class="mdl-navigation">
+                      <h3 style="color:transparent"> HHH</h3>
+                  
+                    <a class="mdl-navigation__link" 
+                       href="#{facesContext.externalContext.requestContextPath}/faces/stage/List.xhtml">
+                        <i class="material-icons" style="color:white;">today</i>
+                        Stages
+                    </a>
+                    <a class="mdl-navigation__link mdl-navigation__link" 
+                       href="#{facesContext.externalContext.requestContextPath}/faces/stagiaire/List.xhtml">
+                       <i class="material-icons" style="color:white;">group</i>
+                        Stagiaires
+                    </a>
+                    <a class="mdl-navigation__link mdl-navigation__link" 
+                       href="#{facesContext.externalContext.requestContextPath}/faces/employe/List.xhtml">
+                        <i class="material-icons" style="color:white;">work</i>
+                        Encadreurs
+                    </a>
+                    <a class="mdl-navigation__link mdl-navigation__link" 
+                       href="#{facesContext.externalContext.requestContextPath}/faces/theme/List.xhtml">
+                        <i class="material-icons" style="color:white;">description</i>
+                        Thèmes
+                    </a>
+                    
+                    <div class="mdl-layout-spacer"></div>
+                   
+                </nav>
+        </p:sidebar>
+               
+                
+                    <div id="sky">
+                         <div class="ui-g">
+        <div id ="content" class="ui-g-12 ui-md-1" style="color:transparent;" onmouseover="PF('sidebar2').show()">M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/>M<br/></div>
+    </div>
+                        <div onmouseover="PF('sidebar2').hide()">
+   <div id="cloud1" class="cloud"></div>
+   <div id="cloud2" class="cloud"></div>
+   <div id="cloud3" class="cloud"></div>
+   <div id="cloud4" class="cloud"></div>
+   <div id="cloud5" class="cloud"></div>
+   <div id="cloud6" class="cloud"></div>
+   <div id="cloud7" class="cloud"></div>
+   <div id="aeroplane"></div></div>
+</div>
+                
+            </p:layoutUnit>
+             <p:layoutUnit position="north" size="53" style="z-index : 100000;border: 0;" gutter="0">
+                 <div baseZIndex="10000">  <ui:insert name="header" >
+
+                             <ui:include src="commonHeader.xhtml" />
+                        </ui:insert>
+                 </div>
+             </p:layoutUnit>
+               
+            <p:layoutUnit position="south" size="60" style="border: 0;" gutter="0">
+                <ui:insert name="footer"> <ui:include src="commonFooter.xhtml" /></ui:insert>
+            </p:layoutUnit>
+             
+
+            
+
+        </p:layout>
+               
+        
+        </h:body>
+
+</html>

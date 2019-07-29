@@ -1,0 +1,668 @@
+.ui-widget {
+    font-size: 12px !important;
+    font-family: 'arial';
+}
+.mystyle{
+    text-align: center;
+   font-family: 'arial';
+    border-style: none;
+    background-color: rgba(255,255,255,.7);
+}
+
+.disabled {
+    font-family: 'arial';
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.button1 {
+   
+    background-color: #099DF6;
+   
+  border-radius: 4px;
+
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 6px 6px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: 'arial';
+}
+
+.button1:hover {background-color: #1f8ac9;font-family: 'arial';}
+
+.button1:active {
+  background-color: #1f8ac9;
+  
+  transform: translateY(4px);
+  font-family: 'arial';
+}
+
+.panel-grid{border-color: transparent;  border-bottom-color: #cccccc; border-bottom-width:  medium;font-family: 'arial';}
+
+.dialogue{
+    margin-top: 70px    ;   background-color: white ; border-style: solid; border-color:  transparent;font-family: 'arial';
+}
+.titre{font-size: 38px; padding : 90px 65px;color: black; margin-left: 20px;font-family: 'arial';}
+.inputtext{ background-color: white;color: black; width:400px;padding: 14px 18px; margin-top: 15px ;margin-left: 50px; margin-bottom: 15px; box-sizing: border-box; border: 2px solid red;
+    border-radius: 4px; font-size: 20px;font-family: 'arial';}
+.outputtext{font-size: 18px;color: black;margin-top: 10px;margin-left: 45px;margin-bottom: 30px;font-family: 'arial';}
+.choix{ background: white; color: black;font-family: 'arial';}
+.button1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  font-family: 'arial';
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #EA2220;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 6px 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: 'arial';
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  font-family: 'arial';
+}
+@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
+*{
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+body {
+  font-family: 'arial';
+}
+
+.heading-primary {
+  font-size: 2em;
+  padding: 2em;
+  text-align: center;
+  font-family: 'arial';
+}
+
+.accordion dl,
+.accordion-list {
+  border: 1px solid #ddd;
+}
+
+.accordion dl:after,
+.accordion-list:after {
+  content: "";
+  display: block;
+  height: 1em;
+  width: 100%;
+  background-color: #099DF6;
+  font-family: 'arial';
+}
+
+.accordion dd,
+.accordion__panel {
+  background-color: #eee;
+  font-size: 1em;
+  line-height: 1.5em;
+  font-family: 'arial';
+}
+
+.accordion p {
+  padding: 1em 2em 1em 2em;
+  font-family: 'arial';
+}
+
+.accordion {
+  position: relative;
+  background-color: #eee;
+  font-family: 'arial';
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2em 0 2em 0;
+}
+
+
+.accordionItem {
+  height: auto;
+  overflow: auto;
+  max-height: 900px;
+  -webkit-transition: max-height 1s;
+  transition: max-height 1s;
+}
+
+@media screen and (min-width: 48em) {
+  .accordionItem {
+    max-height: 900px;
+    -webkit-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+  }
+}
+
+.accordionItem.is-collapsed {
+  max-height: 0;
+}
+
+.no-js .accordionItem.is-collapsed {
+  max-height: 900px;
+}
+@-webkit-keyframes accordionIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+    transform: scale(0.9) rotateX(-60deg);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes accordionIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+    transform: scale(0.9) rotateX(-60deg);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes accordionOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+    transform: scale(0.9) rotateX(-60deg);
+  }
+}
+
+@keyframes accordionOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+    transform: scale(0.9) rotateX(-60deg);
+  }
+}
+
+.animateIn {
+  -webkit-animation: accordionIn 0.65s normal ease-in-out both 1;
+  animation: accordionIn 0.65s normal ease-in-out both 1;
+}
+
+.animateOut {
+  -webkit-animation: accordionOut 0.75s alternate ease-in-out both 1;
+  animation: accordionOut 0.75s alternate ease-in-out both 1;
+}
+
+/*label styles */
+
+.label-style {
+  float: left;
+  margin-right: 15px;
+  padding-top: 5px;
+  padding-left: 100px;
+}
+/* form headings */
+
+.headings {
+  text-align: center;
+  font-weight: bold;
+}
+/* button styles */
+
+.button-container {
+  text-align: center;
+  margin-bottom: 5px;
+  font-family: 'arial';
+}
+/* position of the hint */
+
+.hint {
+  display: inline-block;
+  position: relative;
+  margin-left: 0.5em;
+  margin-top: 0.3em;
+}
+/* background style for 'i' */
+
+.hint-icon {
+  background: #099DF6;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  font-family: 'Libre Baskerville';
+  height: 20px;
+  line-height: 1.3em;
+  text-align: center;
+  font-family: 'arial';
+  width: 20px;
+}
+/* hint icon hover style */
+
+.hint-icon:hover {
+  background: #1f8ac9;
+}
+/* Displays the hint. important! Do not remove. */
+
+.hint:hover .hint-description,
+.hint:focus .hint-description {
+  display: inline-block;
+}
+/* position of the hint  */
+
+.hint-description {
+  display: none;
+  background: #3b3b3b;
+  border: 1px solid #099DF6;
+  border-radius: 3px;
+  font-size: 0.8em;
+  color: #ffffff;
+  font-weight: bold;
+  /*padding: 1em; */
+  
+  position: absolute;
+  left: 30px;
+  top: -15px;
+  width: 180px;
+  height: auto;
+}
+/* styling for the arrow */
+
+.hint-description:before,
+.hint-description:after {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 15px;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #099DF6;
+}
+/* overlay styling */
+
+.hint-description:after {
+  left: -10px;
+  border-right-color: #3b3b3b;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+  font-family: 'arial';
+  
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+  font-family: 'arial';
+}
+.ecriture {
+  font-size: 20px; font-family: 'arial';
+}
+.font-fam{font-family: 'arial'}
+.ui-datatable th.ui-state-default{
+   color: white;
+   background-color: rgb(51, 51, 51);
+   border-color: rgb(51, 51, 51);
+   border-style:  groove;
+   width:50%;
+   text-align:  center;
+   font-family: 'arial';
+}
+.columns {
+	-webkit-columns: 3;
+	-moz-columns: 3;
+	columns: 3;
+        font-family: 'arial';
+}
+.ui-layout-north {
+    z-index: 20 !important;
+    overflow: visible !important;font-family: 'arial';
+}
+.ui-layout-north .ui-layout-unit-content {
+    overflow: visible !important;font-family: 'arial';
+}
+.ui-widget-header {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'arial';
+}
+.ui-button {
+    margin-top: 10px !important;
+}
+@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville);
+* {
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: 'arial';
+}
+
+body {
+  font-family: 'arial';
+}
+
+.heading-primary {
+  font-size: 2em;
+  padding: 2em;
+  text-align: center;
+  font-family: 'arial';
+}
+
+.accordion dl,
+.accordion-list {
+  border: 1px solid #ddd;
+  font-family: 'arial';
+}
+
+.accordion dl:after,
+.accordion-list:after {
+  content: "";
+  display: block;
+  height: 1em;
+  width: 100%;
+  background-color: #099DF6;
+  font-family: 'arial';
+}
+
+.accordion dd,
+.accordion__panel {
+  background-color: #eee;
+  font-size: 1em;
+  line-height: 1.5em;
+  font-family: 'arial';
+}
+
+.accordion p {
+  padding: 1em 2em 1em 2em;
+  font-family: 'arial';
+}
+
+.accordion {
+  position: relative;
+  background-color: #eee;
+  font-family: 'arial';
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2em 0 2em 0;
+  font-family: 'arial';
+}
+
+.accordionTitle,
+.accordion__Heading {
+  background-color: #099DF6;
+  /*text-align: center; */
+  
+  text-indent: 3px;
+  font-weight: 700;
+  padding: 2em;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+  border-bottom: 1px solid #30bb64;
+  font-family: 'arial';
+}
+
+.accordionTitle:before,
+.accordion__Heading:before {
+  content: "+";
+  font-size: 1.5em;
+  line-height: 0.9em;
+  float: left;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  font-family: 'arial';
+}
+
+.accordionTitle:hover,
+.accordion__Heading:hover {
+  background-color: #38CC70;
+ font-family: 'arial';
+}
+
+
+.Image:hover{
+  -webkit-transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+  -webkit-transition-duration: 0.6s; /* Safari */
+    transition-duration: 0.6s;
+ font-family: 'arial';
+}
+
+.accordionItem {
+  height: auto;
+  overflow: auto;
+  max-height: 900px;
+  -webkit-transition: max-height 1s;
+  transition: max-height 1s;
+  font-family: 'arial';
+}
+
+@media screen and (min-width: 48em) {
+  .accordionItem {
+    max-height: 900px;
+    -webkit-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+  }
+}
+
+.accordionItem.is-collapsed {
+  max-height: 0;
+}
+
+.no-js .accordionItem.is-collapsed {
+  max-height: 900px;
+}
+
+.animateIn {
+  -webkit-animation: accordionIn 0.65s normal ease-in-out both 1;
+  animation: accordionIn 0.65s normal ease-in-out both 1;
+}
+
+.animateOut {
+  -webkit-animation: accordionOut 0.75s alternate ease-in-out both 1;
+  animation: accordionOut 0.75s alternate ease-in-out both 1;
+}
+
+@-webkit-keyframes accordionIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+    transform: scale(0.9) rotateX(-60deg);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes accordionIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+    transform: scale(0.9) rotateX(-60deg);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes accordionOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+    transform: scale(0.9) rotateX(-60deg);
+  }
+}
+
+@keyframes accordionOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.9) rotateX(-60deg);
+    transform: scale(0.9) rotateX(-60deg);
+  }
+}
+/*label styles */
+
+.label-style {
+  float: left;
+  margin-right: 15px;
+  padding-top: 5px;
+  padding-left: 100px;
+  font-family: 'arial';
+}
+/* form headings */
+
+.headings {
+  text-align: center;
+  font-weight: bold;
+  font-family: 'arial';
+}
+/* button styles */
+
+.button-container {
+  text-align: center;
+  margin-bottom: 5px;
+  font-family: 'arial';
+}
+/* position of the hint */
+
+.hint {
+  display: inline-block;
+  font-family: 'arial';
+  position: relative;
+  margin-left: 0.5em;
+  margin-top: 0.3em;
+}
+/* background style for 'i' */
+
+.hint-icon {
+  background: #099DF6;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  font-family: 'Libre Baskerville';
+  height: 20px;
+  line-height: 1.3em;
+  text-align: center;
+  width: 20px;
+  font-family: 'arial';
+}
+/* hint icon hover style */
+
+.hint-icon:hover {
+  background: #1f8ac9;
+  font-family: 'arial';
+}
+/* Displays the hint. important! Do not remove. */
+
+.hint:hover .hint-description,
+.hint:focus .hint-description {
+  display: inline-block;
+  font-family: 'arial';
+}
+/* position of the hint  */
+
+.hint-description {
+  display: none;
+  background: #3b3b3b;
+  border: 1px solid #099DF6;
+  border-radius: 3px;
+  font-size: 0.8em;
+  color: #ffffff;
+  font-weight: bold;
+  /*padding: 1em; */
+  
+  position: absolute;
+  left: 30px;
+  top: -15px;
+  width: 180px;
+  height: auto;
+  font-family: 'arial';
+}
+/* styling for the arrow */
+
+.hint-description:before,
+.hint-description:after {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 15px;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #099DF6;
+  font-family: 'arial';
+}
+/* overlay styling */
+
+.hint-description:after {
+  left: -10px;
+  border-right-color: #3b3b3b;
+  font-family: 'arial';
+}

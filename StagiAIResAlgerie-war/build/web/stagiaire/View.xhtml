@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog position="top" width="700px" height ="550px" class="dialogue" id="StagiaireViewDlg" widgetVar="StagiaireViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewStagiaireTitle}">
+            <h:form id="StagiaireViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid class="panel-grid" columns="2">
+                       <h:outputText value="gggggggg"/>
+                        <h:outputText value="#{bundle.ViewStagiaireLabel_id}"/>
+                        <h:outputText value="#{stagiaireController.selected.id}" title="#{bundle.ViewStagiaireTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewStagiaireLabel_nom}"/>
+                        <h:outputText value="#{stagiaireController.selected.nom}" title="#{bundle.ViewStagiaireTitle_nom}"/>
+                        <h:outputText value="#{bundle.ViewStagiaireLabel_prenom}"/>
+                        <h:outputText value="#{stagiaireController.selected.prenom}" title="#{bundle.ViewStagiaireTitle_prenom}"/>
+                        <h:outputText value="#{bundle.ViewStagiaireLabel_datenais}"/>
+                        <h:outputText value="#{stagiaireController.selected.datenais}" title="#{bundle.ViewStagiaireTitle_datenais}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton class="button1" value="#{bundle.Close}" onclick="location.reload();"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+    
+</html>

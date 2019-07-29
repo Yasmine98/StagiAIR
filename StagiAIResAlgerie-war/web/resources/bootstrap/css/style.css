@@ -1,0 +1,241 @@
+.well h1{
+    margin: 0;
+    margin-top: 7px;
+    margin-right: 20px;
+}
+.well .btn{margin-top: 10px;margin-left: 10px;}
+.ui-panelgrid{width: 100%;} 
+.ui-draggable .ui-dialog-titlebar{margin: 0;}
+.ui-dialog .ui-dialog-titlebar-close{
+    top: 3px !important;
+    right: 3px !important;
+}
+.calendar{
+    width: 132px;display: block;
+}
+.calendar .ui-inputfield{
+    width: 100px;
+}
+.well label{margin: 0;}
+.ui-tabs .ui-tabs-panel{padding: 10px 0 !important;}
+#inaction {
+    width: 100%;
+    height: 100%;
+    background-color: #999;
+    background-image: url('/Template/faces/javax.faces.resource/images/chargement.gif');
+    background-position: center 300px !important;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    z-index: 100000;
+}
+.ui-selectonemenu .ui-selectonemenu-trigger{
+    width: 30px !important;
+}
+.ui-selectonemenu .ui-selectonemenu-trigger .ui-icon {
+    margin-top: 7px !important;
+    margin-left: 3px !important;
+}
+label{margin: 0;}
+
+.ui-datatable thead th{
+    font-weight: bold !important;
+}
+.btn{
+    color: #ffffff !important;
+}
+.ui-selectonemenu.monthSelect label.ui-selectonemenu-label{
+    text-align: center;
+}
+
+
+.ui-paginator .ui-paginator-page.ui-state-active{
+    background: #14A4FF;
+    color: #FFFFFF;
+}
+
+.ui-datatable thead th{
+    outline: none !important;
+}
+.ui-datatable .ui-expanded-row-content{
+    background: whitesmoke;
+}
+.ui-datepicker-current-day a {
+    background: #186ba0 !important;
+    filter: none !important;
+    color: #FFFFFF !important;
+}
+.ui-datepicker-today a.ui-state-highlight {
+    border: 1px solid #14A4FF !important;
+    filter: none !important;
+    color: #333333 !important;
+}
+.ui-datatable .ui-row-toggler{
+    display: none;
+}
+.ui-selectonemenu.directions label.ui-selectonemenu-label{
+    text-align: center;
+}
+.ui-datatable .ui-column-filter{
+    width: 100% !important;
+}
+.effectif{
+    /*background: #13A3FF !important;*/
+    font-weight: bold !important;
+    /*color: white !important;*/
+}
+.ui-datalist .ui-widget-content{
+    border: 0;
+}
+.ln1:hover{
+    opacity: 0.8;
+}
+.ln2{
+    font-size: 14px ;
+    color: #669900 !important;
+    display: block;
+    border: 1px solid #669900;
+    border-radius: 10px;
+    opacity: 0.6
+}
+.ln2:hover{
+    opacity: 1
+}
+.ui-dialog .ui-dialog-content{
+    color: #777;
+}
+.ui-dialog .ui-dialog-content .ui-datalist .ui-widget-content{
+    background: transparent !important;
+    color: white;
+}
+.ui-dialog .ui-dialog-titlebar{
+    margin: 0;
+}
+.ui-dialog .ui-dialog-title{
+    color: #12a3ff !important;
+}
+.ui-datatable-data{
+    font-size: 13px;
+}
+.year .ui-selectonemenu-label{
+    padding-left: 16px;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a{
+    
+    color: #168dd9;outline: none;
+}
+.ui-tabs .ui-tabs-nav li a {
+   font-size: 13px !important;
+}
+.ui-panel .ui-panel-content{
+    padding: 0 !important;
+}
+.vSeparator {
+    border-left: 1px dotted #000000;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    /*text-align: center;*/
+}
+.ui-lightbox-content{background: #FFFFFF !important;}
+.ui-selectoneradio label{
+    margin: 0 !important;
+    margin-right: 20px  !important;
+}
+
+
+:hov
+
+
+.cls
+
+element.style {
+}
+.ui-datatable .ui-row-editing .ui-row-editor .ui-icon-check, .ui-datatable .ui-row-editing .ui-row-editor .ui-icon-close {
+    background-image: url("/Template/faces/javax.faces.resource/images/ui-icons_222222_256x240.png?ln=primefaces-delta");
+}
+.ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger{
+    width: 26px !important;
+}
+.ui-selectcheckboxmenu .ui-selectcheckboxmenu-label {
+    font-weight: normal;margin-right: 8px;
+}
+.notification {
+/*    position:absolute;
+    right:-7px;
+    top:-7px;*/
+    background-color:#ea2220;
+    line-height:20px;
+    width:20px;
+    height:20px;
+    border-radius:10px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-left: 5px;
+}
+.ui-menu .ui-menuitem-link {
+    width: 100%  !important;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {
+    border: 1px solid #ffffff;
+    background: #999;
+    color: #FFFFFF;
+}
+.ui-state-highlight .status span{color: #FFFFFF !important;}
+.ui-datalist-data,ui-datalist-item{padding: 0;margin: 0;list-style: none;}
+nav.navbar-findcond ul.navbar-nav > li > a:focus,nav.navbar-findcond ul.navbar-nav > li > a:active  {
+    color: #f14444;
+}
+nav.navbar-findcond ul.usersMenu li{
+    width: 250px;
+    background: #ea2221   !important;
+}
+nav.navbar-findcond ul.usersMenu{
+    background: rgb(234, 34, 32);
+    border-radius: 0;
+}
+
+nav.navbar-findcond ul.usersMenu > li > a {
+    padding: 5px !important;
+    color: #ffffff !important;
+    font-weight: bold;
+    background: #ea2220 !important;
+}
+nav.navbar-findcond ul.usersMenu > li > a:hover {
+    background: #FFFFFF  !important;
+    color: #1fa8ff  !important;
+    text-decoration: underline;
+}
+
+.navbar-nav li.disabled{
+    background: #808080;
+}
+nav.navbar-findcond ul.navbar-nav > li.disabled > a,
+nav.navbar-findcond ul.navbar-nav > li.disabled > a:hover,
+nav.navbar-findcond ul.navbar-nav > li.disabled > a:focus,
+nav.navbar-findcond ul.navbar-nav > li.disabled > a:active{
+    background: #808080 !important;
+    color: #FFFFFF !important;
+    border-color: #FFFFFF !important;
+}
+.ui-datatable .ui-datatable-header{
+    border-bottom: 1px solid rgb(66, 151, 207) !important;
+}
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+    color: rgba(0, 0, 0, 0.49);
+}
+.ui-selectonemenu-panel .ui-selectonemenu-filter-container{width: 100%;}
+.ui-selectonemenu-panel .ui-selectonemenu-filter {
+    width: 100% !important;
+}
+.ui-selectonemenu-panel .ui-selectonemenu-filter-container .ui-icon{
+    display: none;
+}
+.ui-spinner input{width: 100% !important;}

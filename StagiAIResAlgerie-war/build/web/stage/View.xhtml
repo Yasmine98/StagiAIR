@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog class="dialogue" showEffect="clip" hideEffect="clip" closeOnEscape="true" showHeader="false" closable="true" appendTo="@(body)" position="top" width="700px" height ="550px" id="StageViewDlg" widgetVar="StageViewDialog" modal="true" resizable="false" header="#{bundle.ViewStageTitle}">
+            <h:form id="StageViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid class="panel-grid" columns="2" rendered="#{stageController.selected != null}">
+                        <h:outputText value="#{bundle.ViewStageLabel_id}"/>
+                        <h:outputText value="#{stageController.selected.id}" title="#{bundle.ViewStageTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewStageLabel_datedeb}"/>
+                        <h:outputText value="#{stageController.selected.datedeb}" title="#{bundle.ViewStageTitle_datedeb}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewStageLabel_datefin}"/>
+                        <h:outputText value="#{stageController.selected.datefin}" title="#{bundle.ViewStageTitle_datefin}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewStageLabel_idtheme}"/>
+                        <h:outputText value="#{stageController.selected.idtheme}" title="#{bundle.ViewStageTitle_idtheme}"/>
+                    </p:panelGrid>
+                    <p:commandButton class="button1" value="#{bundle.Close}" onclick="location.reload();"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+<p:layoutUnit position="center">
+        <p:dialog id="EmployeEditDlg" widgetVar="EmployeEditDialog" modal="true"  header="#{bundle.EditEmployeTitle}" resizable="false" showEffect="clip"  hideEffect="clip"  closeOnEscape="true"  showHeader="false" 
+                  closable="true" appendTo="@(body)"  position="top" width="900px" class="dialogue">
+            <h:form id="EmployeEditForm">
+                <h:panelGroup id="display" class="panel-group">
+                     <h:panelGrid      width="675" bgcolor="#eaeafd " class="panel-grid">      
+                        <h2 style="margin-top: 0px;margin-left: 50px;color: black">Modifier un encadreur<h:outputText id="Nouveau" /></h2>
+
+                     </h:panelGrid>
+                    <h:panelGrid  width="675" columns="1" rendered="#{employeController.selected != null}" class="panel-grid">
+                        <h:panelGrid columns="2" class="panel-grid">
+                        <p:graphicImage id="photo" value="http://localhost:8080/StagiAIResAlgerie-war/E/image?id=#{employeController.selected.id}" height="100" width="100" style="margin-left: 50px" class="Image"/>
+                         <p:fileUpload fileUploadListener="#{employeController.upload}" uploadLabel="Charger" auto="true"  cancelLabel="Annuler" label="Choisir une autre photo " allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="1000000"  style=" background-color:  #12a3ff;color: white;font-size: 10px; width: 400px !important; margin-left: 50px !important" class="button"/>
+                        </h:panelGrid>
+                        <h:panelGrid  width="650" columns="2" rendered="#{employeController.selected != null}" class="panel-grid">
+                        <h:outputText value="#{bundle.EditEmployeLabel_nom}"  class=" outputtext"/>
+                        <h:outputText value="#{bundle.EditEmployeLabel_prenom}" class=" outputtext" style="margin-top:  0px !important"/>
+                        <h:inputText id="nom" value="#{employeController.selected.nom}" title="#{bundle.EditEmployeTitle_nom}" class=" inputtext" style="width: 305px !important" />
+                         
+                        <h:inputText id="prenom" value="#{employeController.selected.prenom}" title="#{bundle.EditEmployeTitle_prenom}" class=" inputtext" style="width: 305px !important"/>
+                        </h:panelGrid>
+                         <h:panelGrid  width="650" columns="2" rendered="#{employeController.selected != null}" class="panel-grid">
+                       
+                        <h:outputText value="Poste" class="outputtext" style="margin-top:  0px !important"/>
+                       <h:outputText value="#{bundle.EditEmployeLabel_idservice}" class=" outputtext" />
+                         <h:inputText value="#{employeController.selected.poste}" class="inputtext"/>
+                        <p:selectOneMenu id="idservice" value="#{employeController.selected.idservice}"  class=" inputtext">
+                            <f:selectItem itemLabel="#{employeController.selected.idservice.nom}"/>
+                            <f:selectItems value="#{serviceController.itemsAvailableSelectOne}"
+                                           var="idserviceItem"
+                                           itemValue="#{idserviceItem}"
+                                           itemLabel="#{idserviceItem.nom}"/>
+                        </p:selectOneMenu>
+                         </h:panelGrid>
+                        <h:outputText value="Numéro téléphone" class="outputtext" style="margin-top:  0px !important"/>
+                        <h:inputText value="#{employeController.selected.numtel}" class="inputtext"/>
+                          </h:panelGrid>
+                    <p:commandButton actionListener="#{employeController.update}" value="Modifier" update="display,:EmployeListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EmployeEditDialog');" class="button" style="margin-left: 50px"/>
+                    <p:commandButton class="button1" value="#{bundle.Cancel}" onclick="location.reload();"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+    </p:layoutUnit >
+    </ui:composition>
+</html>

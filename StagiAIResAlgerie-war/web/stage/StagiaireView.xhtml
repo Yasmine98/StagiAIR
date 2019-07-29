@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog  class="dialogue" resizable="false" showEffect="clip" hideEffect="clip" closeOnEscape="true" showHeader="false" closable="true" appendTo="@(body)" position="top" width="700px" id="StagiaireStageViewDlg" widgetVar="StageManageDialog" modal="true" header="#{bundle.CreateStagiaireTitle}">
+            <h:form id="StagiaireViewStageForm">
+                <p:panel header="#{bundle.ListStageTitle}">
+                    <p:dataTable  id="dataliststage" value="#{stageController.selected.stagiaireCollection}" var="item"
+                                 selectionMode="single" 
+                                 
+                                 rowKey="#{item.id}"
+                                  style="margin-bottom:20px;border-collapse: collapse;"
+                                 
+                                 class="table table-striped table-bordered  mystyle"
+                                  paginator="true"
+                                paginatorAlwaysVisible="true"
+                                rows="10"
+                                rowsPerPageTemplate="10,20,30,40,50"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                
+                                 >
+
+                       
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStagiaireTitle_nom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nom}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStagiaireTitle_prenom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prenom}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStagiaireTitle_datenais}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.datenais}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStagiaireTitle_lieunais}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lieunais}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStagiaireTitle_etablissement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.etablissement}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStagiaireTitle_specialite}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.specialite}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStagiaireTitle_numtel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numtel}"/>
+                        </p:column>
+                       
+                          <f:facet name="footer">
+                            <p:selectOneMenu id="idstagiaire" value="#{stageController.idstagiaire}" class="inputtext" style="width: 300px !important">
+                                 <f:selectItem itemLabel="Sélectionner un stagiaire ..."/>
+                            <f:selectItems value="#{stagiaireController.itemsAvailableSelectOne}" class="choix"
+                                           var="idstagiaireItem"
+                                           itemValue="#{idstagiaireItem}"
+                                           itemLabel="#{idstagiaireItem.prenom} #{idstagiaireItem.nom}"/>
+                        </p:selectOneMenu>
+                           <p:commandButton class="button" id="addButton"  value="#{bundle.Create}" action="#{stageController.assignStagiaireToStage}" update="dataliststage"/>
+                         <p:commandButton class="button1" id="deleteButton"   value="Delete" action="#{stageController.removeStagiaireStage}" update="dataliststage"/>
+                       <p:commandButton class="button1" value="terminer" onclick="location.reload();"/>
+                
+                          </f:facet>
+                        
+                         </p:dataTable>
+                </p:panel>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
+
+
+        

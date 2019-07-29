@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+   
+    <ui:composition template="./../template.xhtml">
+    
+       
+        <h:outputStylesheet library="Tableau" name="dataTables.bootstrap4.min.css"/>
+    <h:outputStylesheet library="Tableau" name="Datatable.css"/>
+        <ui:define name="title"    >
+            <h:outputText value="Thèmes" ></h:outputText>
+           
+        </ui:define>
+    <ui:define name="body" >
+        <h:form id="ThemeListForm" >
+                <h:panelGrid >
+                    <p:dataTable id="datalist" value="#{themeController.items}"  draggableColumns="true"  var="item"
+                                 widgetVar="themesTable"
+                                 selectionMode="single" selection="#{themeController.selected}"
+                                 rowKey="#{item.id}"
+                                 filteredValue="#{themeController.items}"
+                                 class="  mystyle font-fam"
+                                  paginator="true"
+                                paginatorAlwaysVisible="true"
+                                rows="10"
+                                rowsPerPageTemplate="10,20,30,40,50"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 
+                                 >
+                                    <f:facet name="header">
+                                       <h5>Themes</h5>
+                                    </f:facet>
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                       
+                        <p:column headerText="Titre">
+                            <h:outputText value="#{item.nom}"/>
+                        </p:column>
+                        <p:column headerText="Proposé par">
+                            <h:outputText value="#{item.idemploye.nom} #{item.idemploye.prenom}"/>
+                        </p:column>
+                       
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton"  value="Nouveau" actionListener="#{themeController.prepareCreate}" update=":ThemeCreateForm" oncomplete="PF('ThemeCreateDialog').show()" class="button" style="padding:8px 20px;" />
+                            <p:commandButton id="viewButton" value=""  update=":ThemeViewForm" oncomplete="PF('ThemeViewDialog').show()" disabled="#{empty themeController.selected}" class="button1" style="visibility: hidden;width: 0px !important"/>
+                            <p:commandButton id="editButton"  value="Modifier" update=":ThemeEditForm" oncomplete="PF('ThemeEditDialog').show()" disabled="#{empty themeController.selected}" class="button1" style="padding:8px 20px;"/>
+                            <p:commandButton id="deleteButton"  value="Supprimer"  actionListener="#{themeController.destroy}" update=":growl,datalist" disabled="#{empty themeController.selected}" class="button1" style="padding:8px 20px;margin-left: 10px !important"/>
+                        </f:facet>
+                    </p:dataTable>
+                    
+                </h:panelGrid>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

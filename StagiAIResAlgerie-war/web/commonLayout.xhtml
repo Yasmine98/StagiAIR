@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+     <h:head>
+          <title>Template</title>
+          <h:outputStylesheet library="bootstrap" name="css/bootstrap.css" /> 
+          <h:outputStylesheet library="bootstrap" name="css/navbar.css" />
+          <h:outputStylesheet library="bootstrap" name="css/style.css" />  
+          <h:outputStylesheet library="css" name="lib/getmdl-select.min.css" /> 
+          <h:outputStylesheet library="css" name="lib/nv.d3.css" />
+         <h:outputStylesheet library="css" name="jsfcrud.css" />
+          <h:outputScript library="js" name="jsfcrud.js"/>
+            <h:outputStylesheet library="css" name="grid.css"/>
+             <h:outputStylesheet library="css" name="menu.css"/>
+             
+          <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900' rel='stylesheet' type='text/css'/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+       
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script language='javascript'>
+            function happycode(){
+                alert("side");
+               document.getElementById("sidebar2").style.display = 'block';
+
+            }
+            jQuery(document).ready(function() {
+                $('#accordion ul > li').hover(function() {
+                    $(this).children("ul").slideToggle('slow');
+                });
+            });
+          </script>
+          <f:facet name="middle">          
+             
+               <h:outputScript library="bootstrap" name="js/bootstrap.js" />
+                 <h:outputStylesheet library="css" name="application.css" />  
+          </f:facet>
+
+     </h:head>
+     <h:body>
+        <p:growl id="growl" life="3000" />
+         <p:sidebar class="mdl-layout__drawer" widgetVar="sidebar2" position="left" baseZIndex="1" style=" width: 20%; z-index : 1;">
+             
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" 
+                       href="#{facesContext.externalContext.requestContextPath}/stage/List.xhtml">
+                        <i class="material-icons" style="color:white;">today</i>
+                        Stages
+                    </a>
+                    <a class="mdl-navigation__link mdl-navigation__link" 
+                       href="#{facesContext.externalContext.requestContextPath}/stagiaire/List.xhtml">
+                       <i class="material-icons" style="color:white;">group</i>
+                        Stagiaires
+                    </a>
+                    <a class="mdl-navigation__link mdl-navigation__link" 
+                       href="#{facesContext.externalContext.requestContextPath}/employe/List.xhtml">
+                        <i class="material-icons" style="color:white;">work</i>
+                        Encadreurs
+                    </a>
+                    <a class="mdl-navigation__link mdl-navigation__link" 
+                       href="#{facesContext.externalContext.requestContextPath}/theme/List.xhtml">
+                        <i class="material-icons" style="color:white;">description</i>
+                        Thèmes
+                    </a>
+                    <a class="mdl-navigation__link mdl-navigation__link" 
+                       href="#{facesContext.externalContext.requestContextPath}/service/List.xhtml">
+                        <i class="material-icons" style="color:white;">office</i>
+                        Services
+                    </a>
+                    <div class="mdl-layout-spacer"></div>
+                    <a class="mdl-navigation__link" href="https://rck07.blogspot.com" target="_blank">
+                        <i class="material-icons" role="presentation"></i>
+                        Mon blog
+                    </a>
+                </nav>
+        </p:sidebar>   
+        
+        
+        
+        
+    <div class="ui-g">
+        <div id ="content" class="ui-g-12 ui-md-1" onmouseover="PF('sidebar2').show()">M</div>
+        <div class="ui-g-12 ui-md-10 ui-g-nopad">
+            
+                <div id="page" onmouseover="PF('sidebar2').hide()">
+                   <div id="header">
+                        <ui:insert name="header" >
+
+                             <ui:include src="commonHeader.xhtml" />
+                        </ui:insert>
+                   </div>
+
+
+
+
+              </div>
+           
+
+ 
+            <div class="ui-g">
+                <div id="conte" onmouseover="PF('sidebar2').hide()">
+                    <ui:insert name="body">
+                    
+                    </ui:insert>
+               </div> 
+            </div>
+         </div>
+    </div>
+    <div class="ui-g-12" onmouseover="PF('sidebar2').hide()">
+        Footer
+    </div>
+ 
+          
+          <div id="inaction"></div>
+          <script>
+            //call after page loaded
+            //window.onload=happycodee ;
+
+            //document.getElementById("content").onmouseover=happycode;
+
+            </script>
+          <script src="#{facesContext.externalContext.requestContextPath}/resources/js/d3.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/resources/js/getmdl-select.min.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/resources/js/material.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/resources/js/nv.d3.js"></script>
+     </h:body>
+</html>
+
